@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,body,:root{
+  height: 100%;
+}
+main{
+  background-image: url('/images/background2.avif');
+  min-height: 100vh; background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.titleBut {
+  color: white;
+  text-decoration: none;
+  font-size: 25px;
+  border: none;
+  background: none;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+}
+
+.titleBut::before {
+  margin-left: auto;
+}
+
+.titleBut::after, .titleBut::before {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: #f44336;
+  display: block;
+  transition: 0.5s;
+}
+
+.titleBut:hover::after, .titleBut:hover::before {
+  width: 100%;
+}
