@@ -6,13 +6,15 @@ interface ImageProps {
 }
 const Avatar: React.FC<ImageProps> = ({ src, alt }) => {
   return (
-    <Image
-      className="rounded-full"
-      height="30"
-      width="30"
-      src={src || "/images/placeholder.png"}
-      alt={alt || "Avatar"}
-    />
+    <div className="experimentalBor">
+      <Image
+        className="rounded-full"
+        height="30"
+        width="30"
+        src={src || "/images/placeholder.png"}
+        alt={alt || "Avatar"}
+      />
+    </div>
   );
 };
 

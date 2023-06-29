@@ -11,29 +11,28 @@ main{
   background-repeat: no-repeat;
   background-size: cover;
 }
-.titleBut {
-  color: white;
-  text-decoration: none;
-  font-size: 25px;
-  border: none;
-  background: none;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
+
+.titBlock {
+  position: relative;
+font-weight: bolder;
+
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #0babea, #d41c1c, #11ea19);
+  background-repeat: no-repeat;
+  background-size: 83%;
+  animation: animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
 }
 
-.titleBut::before {
-  margin-left: auto;
-}
-
-.titleBut::after, .titleBut::before {
-  content: '';
-  width: 0%;
-  height: 2px;
-  background: #f44336;
-  display: block;
-  transition: 0.5s;
-}
-
-.titleBut:hover::after, .titleBut:hover::before {
-  width: 100%;
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
 }

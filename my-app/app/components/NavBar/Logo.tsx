@@ -6,14 +6,7 @@ const Lgog = () => {
   const router = useRouter();
   return (
     <>
-      <h1 className="text-xl titleBut">DrinkDes-6.2</h1>
-      {/* <Image
-        className="hidden md:block cursor-pointer rounded-lg"
-        src="/images/label2.jpeg"
-        alt="ah shit,here we go again"
-        width={100}
-        height={100}
-      /> */}
+      <p className="titBlock text-5xl">DrinkDes-6.2</p>
     </>
   );
 };
