@@ -6,7 +6,7 @@ const Lgog = () => {
   const router = useRouter();
   return (
     <>
-      <p className="titBlock text-5xl">DrinkDes-6.2</p>
+      <p className="titBlock text-4xl">DrinkDes-6.2</p>
     </>
   );
 };

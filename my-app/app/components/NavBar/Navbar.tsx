@@ -11,7 +11,7 @@ interface NavBarProps {
 }
 const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-300">
       {" "}
       <div className="flex-1">
         <a className="btn btn-ghost normal-case ">
@@ -20,7 +20,7 @@ const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
       </div>
       <div className="flex flex-1 justify-between items-center m-2">
         <div className="flex-grow"></div>
-        <Search />
+
         <div className="flex-grow"></div>
         <UserMenu currentUser={currentUser} />
       </div>
