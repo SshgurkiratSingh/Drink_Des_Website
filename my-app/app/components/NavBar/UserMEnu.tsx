@@ -12,6 +12,8 @@ import { IoIosLogIn } from "react-icons/io";
 import { GrUserNew } from "react-icons/gr";
 import { PiSignInLight } from "react-icons/pi";
 import { IoFitnessSharp } from "react-icons/io5";
+import { BsPlus } from "react-icons/bs";
+import useAddModal from "@/app/hooks/useAddModal";
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
@@ -20,8 +22,51 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const addModal = useAddModal();
   const toggleOpen = () => setIsOpen(!isOpen);
-
+  if (currentUser?.email === "guri2022@hotmail.com") {
+    return (
+      <div className="dropdown dropdown-end">
+        <button
+          onClick={toggleOpen}
+          className="btn btn-ghost btn-circle avatar"
+        >
+          <div className="w-10 rounded-full">
+            <Avatar
+              src={currentUser?.image}
+              alt={currentUser?.name || "User avatar"}
+            />
+          </div>
+        </button>
+        {isOpen && (
+          <>
+            {currentUser.email === "guri2022@hotmail.com" ? (
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li className="text-center text-primary text-xl">
+                  Welcome To Admin Portal
+                </li>
+                <MenuItem
+                  label="Add New"
+                  onClick={addModal.onOpen}
+                  icon={<BsPlus />}
+                />
+                <MenuItem
+                  label="Logout"
+                  onClick={signOut}
+                  icon={<AiOutlineLogout />}
+                />
+              </ul>
+            ) : (
+              <div>You need to be admin to see this</div>
+            )}
+          </>
+        )}
+      </div>
+    );
+  }
   return (
     <div className="dropdown dropdown-end">
       <button onClick={toggleOpen} className="btn btn-ghost btn-circle avatar">

@@ -20,6 +20,8 @@ model User {
   accounts        Account[]
   purchaseHistory PurchaseHistory[]
   favourites      Favourite[]
+  balance         Int               @default(0)
+  AddMoneyHistory AddMoneyHistory[]
 }
 
 model Account {
@@ -44,13 +46,16 @@ model Item {
   id              String            @id @default(auto()) @map("_id") @db.ObjectId
   title           String
   description     String
-  imageSrc        String
+  imageSrc1       String
+  imageSrc2       String
   createdAt       DateTime          @default(now())
   category        String
   calories        Int
-  availability    Boolean
-  location        String
+  availability    Int
   price           Int
+  counter         Int
+  SubDes          String?
+  TotalPurchased  Int               @default(0)
   PurchaseHistory PurchaseHistory[]
   Favourite       Favourite[]
 }
@@ -73,4 +78,16 @@ model Favourite {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   itemId String @db.ObjectId
   item   Item   @relation(fields: [itemId], references: [id], onDelete: Cascade)
+}
+
+model AddMoneyHistory {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId        String   @db.ObjectId
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactionId String
+  Amount        Int      @default(0)
+  status        String?
+  Date          DateTime @default(now())
+  method        String?
+  By            String?
 }
