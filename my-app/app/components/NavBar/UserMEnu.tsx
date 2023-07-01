@@ -14,6 +14,7 @@ import { PiSignInLight } from "react-icons/pi";
 import { IoFitnessSharp } from "react-icons/io5";
 import { BsPlus } from "react-icons/bs";
 import useAddModal from "@/app/hooks/useAddModal";
+import { useRouter } from "next/navigation";
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
@@ -22,6 +23,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
+  const router = useRouter();
   const addModal = useAddModal();
   const toggleOpen = () => setIsOpen(!isOpen);
   if (currentUser?.email === "guri2022@hotmail.com") {
@@ -69,7 +71,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   }
   return (
     <div className="dropdown dropdown-end">
+      <div className="indicator">
+        <span className="indicator-item badge badge-secondary">
+          Rs. {currentUser?.balance}
+        </span>
+      </div>
       <button onClick={toggleOpen} className="btn btn-ghost btn-circle avatar">
+        {" "}
         <div className="w-10 rounded-full">
           <Avatar
             src={currentUser?.image}
@@ -90,7 +98,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <MenuItem label="Profile " onClick={() => {}} icon={<TiUser />} />
               <MenuItem
                 label="Purchase History"
-                onClick={() => {}}
+                onClick={() => {
+                  router.push("/purchase-history");
+                }}
                 icon={<MdHistory />}
               />
               <MenuItem

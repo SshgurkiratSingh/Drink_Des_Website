@@ -31,7 +31,11 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
-          <AddModal />
+          {currentUser?.email === "guri2022@hotmail.com" ? (
+            <AddModal />
+          ) : (
+            <div></div>
+          )}
           <Navbar currentUser={currentUser} />
         </ClientOnly>
         <main>{children}</main>
