@@ -7,9 +7,9 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { toast } from "react-hot-toast";
+import HeartButton from "./HeartButton";
 interface ItemCardProps {
   data: Item;
-
   currentUser?: SafeUser | null;
   disabled?: boolean;
 }
@@ -19,6 +19,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ data, currentUser, disabled }) => {
   const handleItemClick = () => {
     router.push(`/item/${data.id}`);
   };
+  // console.log(currentUser?.value);
   return (
     <div className=" ">
       <div
@@ -28,16 +29,17 @@ const ItemCard: React.FC<ItemCardProps> = ({ data, currentUser, disabled }) => {
         <div className="cardList  group-hover:text-primary transition relative flex flex-col justify-between cursor-pointer rounded-lg py-10 px-5">
           <p className="titleList">{data.title}</p>
           <p className="DescriptionList">{data.description.slice(0, 35)}...</p>
+          <div
+            className="
+            absolute
+            top-3
+            right-3
+          "
+          >
+            <HeartButton listingId={data.id} currentUser={currentUser} />
+          </div>
           <div className="w-f flex  text-white text-center">
             {LastOrder ? <>{LastOrder}</> : <></>}
-            <Button
-              label="Add To Fav"
-              s4
-              onClick={() => {
-                console.log("clicked");
-                toast.success("Added to Favourites");
-              }}
-            />
           </div>
           <Image
             className=" group-hover:scale-110 

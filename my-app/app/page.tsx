@@ -3,9 +3,11 @@ import ClientOnly from "./components/ClientOnly";
 import Container from "./components/container";
 import getItems from "./actions/getItems";
 import ItemCard from "./components/ListingCard";
+import getCurrentUser from "./actions/getCurrentUser";
 
 export default async function Home() {
   const Items = await getItems();
+  const currentUser = await getCurrentUser();
   return (
     <div className="text-rose-500 text-2xl">
       <ClientOnly>
@@ -26,7 +28,9 @@ export default async function Home() {
           "
           >
             {Items.map((item) => {
-              return <ItemCard key={item.id} data={item} />;
+              return (
+                <ItemCard key={item.id} data={item} currentUser={currentUser} />
+              );
             })}
           </div>
         </Container>
