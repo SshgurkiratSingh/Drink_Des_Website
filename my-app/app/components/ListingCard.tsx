@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Button from "./Button";
 import { toast } from "react-hot-toast";
 import HeartButton from "./HeartButton";
+import { categories } from "./Categories/Categories";
 interface ItemCardProps {
   data: Item;
   currentUser?: SafeUser | null;
@@ -37,6 +38,18 @@ const ItemCard: React.FC<ItemCardProps> = ({ data, currentUser, disabled }) => {
           "
           >
             <HeartButton listingId={data.id} currentUser={currentUser} />
+          </div>
+          <div
+            className="
+            absolute
+            top-3
+            left-3
+          "
+          >
+            {
+              categories.find((category) => category.label === data.category)
+                ?.icon
+            }
           </div>
           <div className="w-f flex  text-white text-center">
             {LastOrder ? <>{LastOrder}</> : <></>}

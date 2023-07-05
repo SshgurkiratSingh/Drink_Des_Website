@@ -4,7 +4,7 @@ import Container from "./components/container";
 import getItems from "./actions/getItems";
 import ItemCard from "./components/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
-
+import { categories } from "./components/Categories/Categories";
 export default async function Home() {
   const Items = await getItems();
   const currentUser = await getCurrentUser();
@@ -14,22 +14,18 @@ export default async function Home() {
         <Container>
           <div
             className="
-           
-            pt-24
-            grid 
-            grid-cols-1 
-            sm:grid-cols-2 
-            md:grid-cols-3 
-            lg:grid-cols-4
-            xl:grid-cols-5
-            2xl:grid-cols-6
-            gap-8
+         grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4
            
           "
           >
             {Items.map((item) => {
               return (
-                <ItemCard key={item.id} data={item} currentUser={currentUser} />
+                <ItemCard
+                  key={item.id}
+                  data={item}
+                  currentUser={currentUser}
+                 
+                />
               );
             })}
           </div>

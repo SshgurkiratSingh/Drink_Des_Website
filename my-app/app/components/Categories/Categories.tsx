@@ -1,7 +1,10 @@
 "use client";
 import { IoBeerOutline, IoCafeOutline, IoWaterOutline } from "react-icons/io5";
 import { LuCupSoda } from "react-icons/lu";
+import { usePathname, useSearchParams } from "next/navigation";
 import { LiaGlassMartiniAltSolid } from "react-icons/lia";
+import Container from "../container";
+import CategoryBox from "../CategoryBox";
 export const categories = [
   {
     label: "Soda Symphony",
@@ -31,3 +34,30 @@ export const categories = [
     description: "Stay refreshed and hydrated with pure, chilled water!",
   },
 ];
+
+const Categories = () => {
+  const params = useSearchParams();
+  const cat = params?.get("category");
+  const pathName = usePathname();
+  if (pathName === "/") {
+    return (
+      <Container>
+        <div className="pt-4 flex flex-row items-center justify-between overflow-x-auto">
+          {categories.map((category) => (
+            <CategoryBox
+              key={category.label}
+              label={category.label}
+              description={category.description}
+              icon={category.icon}
+              selected={category.label === cat}
+            />
+          ))}
+        </div>
+      </Container>
+    );
+  } else {
+    return null;
+  }
+};
+
+export default Categories;

@@ -7,6 +7,7 @@ import Search from "./Search";
 import UserMenu from "./UserMEnu";
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
+import Categories from "../Categories/Categories";
 interface NavBarProps {
   currentUser?: SafeUser | null;
 }
@@ -18,10 +19,7 @@ const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
         <div className="navbar bg-base-100 w-full">
           {" "}
           <div className="flex-1">
-            <div
-              className="btn btn-ghost normal-case "
-            
-            >
+            <div className="btn btn-ghost normal-case ">
               <Lgog />
             </div>
           </div>
@@ -32,7 +30,8 @@ const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
             <UserMenu currentUser={currentUser} />
           </div>
         </div>
-      </Container>
+      </Container>{" "}
+      <Categories />
     </>
   );
 };
