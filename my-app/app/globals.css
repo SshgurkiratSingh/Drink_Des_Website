@@ -11,6 +11,13 @@ main{
   background-repeat: no-repeat;
   background-size: cover;
 }
+.titleForList {
+ 
+  background: linear-gradient(to right, #2144f3,
+  #ff6b08, #cf23cf, #eedd44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .titBlock {
   position: relative;

@@ -3,6 +3,8 @@ import getItemById from "@/app/actions/getIembyId";
 import ClientOnly from "@/app/components/ClientOnly";
 import EmptyState from "@/app/components/EmptyState";
 import HeartButton from "@/app/components/HeartButton";
+import ImageMenu from "@/app/components/ImageMenu";
+import TitleForList from "@/app/components/TitleForItem";
 
 interface IParams {
   itemId: string;
@@ -20,45 +22,16 @@ const ItemPage = async ({ params }: { params: IParams }) => {
   const itemDetail = await getItemById(params);
   return (
     <ClientOnly>
-      <div className="hero min-h-screen ">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">{itemDetail?.title}</h1>
-            <div className="flex justify-center items-center  ">
-              <div className=" carousel carousel-center overflow-x-hidden items-center  p-4 space-x-4 bg-neutral rounded-box">
-                <div
-                  className="carousel-item "
-                  style={{ maxWidth: "200px", maxHeight: "200px" }}
-                >
-                  <img
-                    src={itemDetail?.imageSrc1}
-                    className="rounded-box rounded-lg"
-                    style={{ maxWidth: "200px", maxHeight: "200px" }}
-                  />
-                </div>
-                <div className="carousel-item">
-                  <img
-                    src={itemDetail?.imageSrc2}
-                    className="rounded-box"
-                    style={{
-                      maxWidth: "200px",
-                      maxHeight: "200px",
-                      overflow: "hidden",
-                    }}
-                  />
-                </div>
-              </div>
-            </div>
-            <p className="py-6">{itemDetail?.description}</p>
-            <div className="absolute bottom-0 right-50">
-              <HeartButton
-                listingId={itemDetail?.id}
-                currentUser={currentUser}
-              />
-            </div>
-          </div>
+      <div className="flex flex-col justify-center items-center  ">
+        <TitleForList title={itemDetail?.title} listingId={itemDetail?.id} currentUser={currentUser}/>
+        <div style={{ maxWidth: "400px", maxHeight: "400px" }}>
+          <ImageMenu
+            image1={itemDetail?.imageSrc1}
+            image2={itemDetail?.imageSrc2}
+          />
         </div>
       </div>
+      <p className="py-6">{itemDetail?.description}</p>
     </ClientOnly>
   );
 };
