@@ -13,7 +13,7 @@ const HistoryPageById: React.FC<HistoryPageProps> = ({ data }) => {
   const formattedDate = formatDistanceToNow(data.purchaseDate, {
     addSuffix: true,
   });
-  return <div>{formattedDate}</div>;
+  return <div>Ordered {formattedDate}</div>;
 };
 
 export default HistoryPageById;

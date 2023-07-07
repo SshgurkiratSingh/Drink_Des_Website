@@ -16,10 +16,13 @@ const HistoryElement: React.FC<HistoryElementProps> = ({ history, sno }) => {
     <tr className="hover">
       <th>{sno}</th>
       <th>
-        <img
-          src={history.item.imageSrc2}
-          style={{ maxHeight: "50px", maxWidth: "50px" }}
-        />
+        {" "}
+        <a href={`/item/${history.item.id}`}>
+          <img
+            src={history.item.imageSrc2}
+            style={{ maxHeight: "50px", maxWidth: "50px" }}
+          />{" "}
+        </a>
       </th>
       <td>{history.item.title}</td>
       <td>{formattedDate}</td>

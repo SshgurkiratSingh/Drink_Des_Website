@@ -1,22 +1,22 @@
 "use client";
 import axios from "axios";
-import { AiFillGithub } from "react-icons/ai";
-import { FcGoogle } from "react-icons/fc";
+
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
-import { data } from "autoprefixer";
+
 import Modal from "./Modals";
 import Heading from "../Heading";
-import Input from "../inputs/Input";
+
 import { toast } from "react-hot-toast";
 import Button from "../NavBar/Button";
-import { SignatureKind } from "typescript";
-import { signIn } from "next-auth/react";
+
 import useLoginModal from "@/app/hooks/useLoginModal";
 import useProfilePicModal from "@/app/hooks/useProfilePicModal";
 import ImageUpload from "../inputs/imageUpload";
+import { useRouter } from "next/navigation";
 const ProfilePicModal = () => {
+  const router = useRouter();
   const ProfilePicModal = useProfilePicModal();
   const [isLoading, setIsLoading] = useState(false);
   const {
@@ -41,6 +41,7 @@ const ProfilePicModal = () => {
     axios
       .post("/api/updatePic", data)
       .then((res) => {
+        router.refresh;
         ProfilePicModal.onClose();
       })
       .catch((err) => {
@@ -53,7 +54,7 @@ const ProfilePicModal = () => {
     <div>
       <ImageUpload
         value={imageSrc}
-        onChange={(value) => setCustomValue("imageSrc2", value)}
+        onChange={(value) => setCustomValue("imageSrc", value)}
       />
     </div>
   );
