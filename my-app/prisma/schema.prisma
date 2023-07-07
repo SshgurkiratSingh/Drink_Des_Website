@@ -8,22 +8,22 @@ datasource db {
 }
 
 model User {
-  id             String    @id @default(auto()) @map("_id") @db.ObjectId
-  tag            String?
-  name           String?
-  email          String?   @unique
-  weight         Float?
-  Height         Int?
-  age            Int?
-  emailVerified  DateTime?
-  calorieUpdated DateTime?
-  cal_rem        Float?
-  image          String?
-  hashedPassword String?
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-  accounts       Account[]
-
+  id              String            @id @default(auto()) @map("_id") @db.ObjectId
+  tag             String?
+  name            String?
+  email           String?           @unique
+  weight          Float?
+  Height          Int?
+  age             Int?
+  emailVerified   DateTime?
+  calorieUpdated  DateTime?
+  cal_rem         Float?
+  image           String?
+  hashedPassword  String?
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+  accounts        Account[]
+  gender          String?
   favoriteIds     String[]          @db.ObjectId
   balance         Int               @default(0)
   AddMoneyHistory AddMoneyHistory[]
