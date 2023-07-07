@@ -10,7 +10,7 @@ export default async function getItemById(params: IParams) {
     const data = await prisma.item.findUnique({
       where: {
         id: itemId,
-      },
+      }
     });
 
     if (!data) {
@@ -20,6 +20,6 @@ export default async function getItemById(params: IParams) {
     return data;
   } catch (error) {
     console.error("Error in getItemById:", error);
-    throw new Error("An error occurred while fetching the item: " + error.message);
+    throw new Error("An error occurred while fetching the item: " + error);
   }
 }

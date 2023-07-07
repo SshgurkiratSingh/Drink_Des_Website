@@ -13,6 +13,7 @@ import { GrUserNew } from "react-icons/gr";
 import { PiSignInLight } from "react-icons/pi";
 import { IoFitnessSharp } from "react-icons/io5";
 import { BsPlus } from "react-icons/bs";
+import { PiMoneyBold } from "react-icons/pi";
 import useAddModal from "@/app/hooks/useAddModal";
 import { useRouter } from "next/navigation";
 interface UserMenuProps {
@@ -95,7 +96,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               <li className="text-center text-red-300 text-xl">
                 Hi,{currentUser.name}
               </li>
-              <MenuItem label="Profile " onClick={() => {}} icon={<TiUser />} />
+              <MenuItem
+                label="Profile "
+                onClick={() => {
+                  router.push("/Profile");
+                }}
+                icon={<TiUser />}
+              />
               <MenuItem
                 label="Purchase History"
                 onClick={() => {
@@ -112,6 +119,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 label="Fitness Record"
                 onClick={() => {}}
                 icon={<IoFitnessSharp />}
+              />
+              <MenuItem
+                label="Add Money"
+                onClick={() => {}}
+                icon={<PiMoneyBold />}
               />
               <MenuItem
                 label="Logout"

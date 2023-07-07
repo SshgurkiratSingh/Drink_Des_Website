@@ -2,16 +2,67 @@ import Image from "next/image";
 import ClientOnly from "../components/ClientOnly";
 import Container from "../components/container";
 import EmptyState from "../components/EmptyState";
+import getCurrentUser from "../actions/getCurrentUser";
+import getPurchase from "../actions/getPurchaseHistory";
+import HistoryElement from "./historyelement";
 
 export default async function Home() {
+  const currentUser = await getCurrentUser();
+  if (!currentUser) {
+    return (
+      <div className="text-rose-500 text-2xl">
+        <ClientOnly>
+          <Container>
+            <EmptyState
+              title="Please Login"
+              subtitle="Login to continue"
+              showReset
+            />
+          </Container>
+        </ClientOnly>
+      </div>
+    );
+  }
+  const history = await getPurchase({ userId: currentUser?.id });
+  console.log(history);
+  if (history?.length == 0) {
+    return (
+      <div className="text-rose-500 text-2xl">
+        <ClientOnly>
+          <Container>
+            <EmptyState
+              title="Nothing Found😔"
+              subtitle="Try Purchasing Something"
+            />
+          </Container>
+        </ClientOnly>
+      </div>
+    );
+  }
   return (
-    <div className="text-rose-500 text-2xl">
+    <div className=" text-2xl">
       <ClientOnly>
         <Container>
-          <EmptyState
-            title="Nothing Found😔"
-            subtitle="Try Purchasing Something"
-          />
+          <div className="overflow-x-auto">
+            <table className="table">
+              {/* head */}
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Item</th>
+                  <th>Item Name</th>
+                  <th>Date</th>
+                  <th>Category</th>
+                  <th>Total Price Charged</th>
+                </tr>
+              </thead>
+              <tbody>
+                {history?.reverse().map((item, sno) => (
+                  <HistoryElement history={item} sno={sno + 1} key={sno} />
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Container>
       </ClientOnly>
     </div>

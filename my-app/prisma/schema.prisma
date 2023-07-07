@@ -8,22 +8,22 @@ datasource db {
 }
 
 model User {
-  id              String            @id @default(auto()) @map("_id") @db.ObjectId
-  tag             String?
-  name            String?
-  email           String?           @unique
-  weight          Float?
-  Height          Int?
-  age             Int?
-  emailVerified   DateTime?
-  calorieUpdated  DateTime?
-  cal_rem         Float?
-  image           String?
-  hashedPassword  String?
-  createdAt       DateTime          @default(now())
-  updatedAt       DateTime          @updatedAt
-  accounts        Account[]
-  purchaseHistory PurchaseHistory[]
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  tag            String?
+  name           String?
+  email          String?   @unique
+  weight         Float?
+  Height         Int?
+  age            Int?
+  emailVerified  DateTime?
+  calorieUpdated DateTime?
+  cal_rem        Float?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  accounts       Account[]
+
   favoriteIds     String[]          @db.ObjectId
   balance         Int               @default(0)
   AddMoneyHistory AddMoneyHistory[]
@@ -65,15 +65,16 @@ model Item {
 }
 
 model PurchaseHistory {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  userId       String   @db.ObjectId
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String @id @default(auto()) @map("_id") @db.ObjectId
+  userId String
+
   itemId       String   @db.ObjectId
   item         Item     @relation(fields: [itemId], references: [id], onDelete: Cascade)
   purchaseDate DateTime
   calories     Int?
   totalPrice   Int
   location     String?
+  size         String?
 }
 
 model AddMoneyHistory {
