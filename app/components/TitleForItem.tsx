@@ -4,8 +4,8 @@ import HeartButton from "./HeartButton";
 import { SafeUser } from "../types";
 
 interface TitleForListProps {
-  title?: String;
-  listingId?: String;
+  title?: string;
+  listingId?: string;
   currentUser?: SafeUser;
 }
 
@@ -19,10 +19,11 @@ const TitleForList: React.FC<TitleForListProps> = ({
       <div className="text-5xl font-bold text-gray-50 titleForList flex flex-row">
         {title}
         <span className="ml-auto items-center align-middle">
-          <HeartButton listingId={listingId} currentUser={currentUser} />
+          {listingId && <HeartButton listingId={listingId} currentUser={currentUser} />}
         </span>
       </div>
     </div>
   );
 };
+
 export default TitleForList;
