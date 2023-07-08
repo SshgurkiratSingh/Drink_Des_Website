@@ -5,8 +5,15 @@ import EmptyState from "../components/EmptyState";
 import Heading from "../components/Heading";
 import ItemCardByFav from "../components/ListingCardForFav";
 
-const FavPage = async () => {
+const favourite = async () => {
   const currentUser = await getCurrentUser();
+  if (!currentUser) {
+    return(
+    <ClientOnly>
+      <EmptyState title="Please Login" subtitle="Login to see this page" />
+    </ClientOnly>
+  );
+}
   const fav = await getFavById();
   if (fav.length === 0) {
     return (
@@ -38,4 +45,5 @@ const FavPage = async () => {
     </ClientOnly>
   );
 };
-export default FavPage;
+
+export default favourite;
