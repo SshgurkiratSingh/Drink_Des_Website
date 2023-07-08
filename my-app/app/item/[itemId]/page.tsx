@@ -35,7 +35,7 @@ const ItemPage = async ({ params }: { params: IParams }) => {
 
   return (
     <ClientOnly>
-      <div className="flex flex-col justify-center items-center  ">
+      <div className="flex flex-col justify-center items-center  backGrad">
         <TitleForList
           title={itemDetail?.title}
           listingId={itemDetail?.id}

@@ -13,10 +13,12 @@ export default async function Home() {
       <ClientOnly>
         {" "}
         <Container>
-          <EmptyState
-            title="You need to login to view this page"
-            subtitle="Please Login to continue"
-          />
+          <div className="backGrad">
+            <EmptyState
+              title="You need to login to view this page"
+              subtitle="Please Login to continue"
+            />
+          </div>
         </Container>
       </ClientOnly>
     );

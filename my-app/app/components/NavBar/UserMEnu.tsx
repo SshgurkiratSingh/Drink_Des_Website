@@ -112,7 +112,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               />
               <MenuItem
                 label="Favourite"
-                onClick={() => {}}
+                onClick={() => {
+                  router.push("/favourite");
+                }}
                 icon={<MdOutlineFavoriteBorder />}
               />
               <MenuItem

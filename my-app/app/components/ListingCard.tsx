@@ -56,7 +56,7 @@ const ItemCard: React.FC<ItemCardProps> = ({ data, currentUser, disabled }) => {
           </div>
           <Image
             className=" group-hover:scale-110 
-              transition group-hover:rounded-full rounded-3xl transition "
+              transition   mask mask-hexagon"
             src={data.imageSrc1}
             alt={data.title}
             height={100}
