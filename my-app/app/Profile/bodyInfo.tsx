@@ -24,6 +24,7 @@ const BodyInfo: React.FC<InfoProps> = ({ gender, dob, height, weight }) => {
       <div className="flex items-center space-x-2">
         <FaBirthdayCake className="text-pink-500" />
         <span className="text-pink-400">
+          Born
           {formatDistanceToNow(dob, { addSuffix: true })}
         </span>
       </div>

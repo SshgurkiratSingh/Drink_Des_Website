@@ -8,6 +8,8 @@ import TitleForList from "@/app/components/TitleForItem";
 import DescriptionLi from "../DescriptionLi";
 import HistoryPageById from "./HistoryPageC";
 import getHistoryById from "@/app/actions/getHistoryByUserAndItem";
+import { useState } from "react";
+import NutritionData from "./nutrientChart";
 
 interface IParams {
   itemId: string;
@@ -30,7 +32,7 @@ const ItemPage = async ({ params }: { params: IParams }) => {
       itemId: itemDetail?.id,
     });
   }
-  // console.log(history);
+
   return (
     <ClientOnly>
       <div className="flex flex-col justify-center items-center  ">
@@ -47,6 +49,8 @@ const ItemPage = async ({ params }: { params: IParams }) => {
         </div>
         <br />
         <DescriptionLi description={itemDetail?.description} />
+
+        <NutritionData title={itemDetail?.title} />
         {history && <HistoryPageById data={history[history.length - 1]} />}
       </div>
     </ClientOnly>
