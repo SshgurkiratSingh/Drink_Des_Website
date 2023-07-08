@@ -58,7 +58,13 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 />
                 <MenuItem
                   label="Logout"
-                  onClick={signOut}
+                  onClick={() => {
+                    signOut({
+                      redirect: false,
+                      callbackUrl:
+                        '"https://main.d1emtjc4kvp6hm.amplifyapp.com/"',
+                    });
+                  }}
                   icon={<AiOutlineLogout />}
                 />
               </ul>
@@ -119,7 +125,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               />
               <MenuItem
                 label="Fitness Record"
-                onClick={() => {}}
+                onClick={() => {
+                  router.push("/Fitness-detail");
+                }}
                 icon={<IoFitnessSharp />}
               />
               <MenuItem
