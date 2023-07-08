@@ -3,7 +3,6 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, ReactNode } from "react";
 
 interface CategoryBoxProps {
-  children: ReactNode;
   label: string;
   selected?: boolean;
   icon: ReactNode;
@@ -11,7 +10,6 @@ interface CategoryBoxProps {
 }
 
 const CategoryBox: React.FC<CategoryBoxProps> = ({
-  children,
   label,
   selected,
   icon,
