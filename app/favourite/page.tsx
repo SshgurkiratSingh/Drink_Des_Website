@@ -7,7 +7,7 @@ import ItemCardByFav from "../components/ListingCardForFav";
 
 const FavPage = async () => {
   const currentUser = await getCurrentUser();
-  const fav = await getFavById("b");
+  const fav = await getFavById();
   if (fav.length === 0) {
     return (
       <ClientOnly>

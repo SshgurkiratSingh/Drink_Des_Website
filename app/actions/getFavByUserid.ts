@@ -2,11 +2,9 @@
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "./getCurrentUser";
 
-interface IParams {
-  
-}
 
-export default async function getFavById(params: IParams) {
+
+export default async function getFavById() {
 const user=await getCurrentUser();
 
 
