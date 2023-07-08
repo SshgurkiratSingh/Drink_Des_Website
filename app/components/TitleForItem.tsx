@@ -6,7 +6,7 @@ import { SafeUser } from "../types";
 interface TitleForListProps {
   title?: string;
   listingId?: string;
-  currentUser?: SafeUser;
+  currentUser?: SafeUser | null;
 }
 
 const TitleForList: React.FC<TitleForListProps> = ({
@@ -19,7 +19,9 @@ const TitleForList: React.FC<TitleForListProps> = ({
       <div className="text-5xl font-bold text-gray-50 titleForList flex flex-row">
         {title}
         <span className="ml-auto items-center align-middle">
-          {listingId && <HeartButton listingId={listingId} currentUser={currentUser} />}
+          {listingId && (
+            <HeartButton listingId={listingId} currentUser={currentUser} />
+          )}
         </span>
       </div>
     </div>

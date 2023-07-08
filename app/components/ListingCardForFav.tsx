@@ -9,6 +9,7 @@ import Button from "./Button";
 import { toast } from "react-hot-toast";
 import HeartButton from "./HeartButton";
 import { categories } from "./Categories/Categories";
+import { ImageResponse } from "next/server";
 interface ItemCardProps {
   data: Item;
   currentUser?: SafeUser | null;
@@ -32,7 +33,11 @@ const ItemCard: React.FC<ItemCardProps> = ({ data, currentUser, disabled }) => {
           <div className="dbsf-efubjmt">
             <p className="ufyu-ujumf">{data.title}</p>
             <p className="ufyu-cpez flex flex-col align-middle items-center">
-              <img src={data.imageSrc2} alt="" className="mask mask-hexagon" />
+              <Image
+                src={data.imageSrc2}
+                alt=""
+                className="mask mask-hexagon"
+              />
               <p>{data.availability > 0 ? "Available" : "Not Available"}</p>
             </p>
           </div>{" "}

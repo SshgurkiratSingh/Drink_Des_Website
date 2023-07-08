@@ -9,6 +9,7 @@ import useUpdateBody from "../hooks/useBodyModal";
 import BodyUpdateModal from "../components/modals/UpdateBodyDetail";
 import BodyInfo from "./bodyInfo";
 import { MdAccountBalanceWallet } from "react-icons/md";
+import Image from "next/image";
 interface ProfileBoxProps {
   currentUser: SafeUser;
 }
@@ -34,8 +35,8 @@ const ProfileBox: React.FC<ProfileBoxProps> = ({ currentUser }) => {
         <ProfilePicModal />
         <BodyUpdateModal />
         <figure className="snip1344">
-          <img src={userImage} alt="profile-pic" className="background" />
-          <img src={userImage} alt="profile-sample6" className="profile" />
+          <Image src={userImage} alt="profile-pic" className="background" />
+          <Image src={userImage} alt="profile-sample6" className="profile" />
           <figcaption>
             <h3>
               {currentUser.name}

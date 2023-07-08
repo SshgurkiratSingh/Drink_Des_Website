@@ -1,12 +1,30 @@
 "use client";
-import { Item, PurchaseHistory } from "@prisma/client";
+import { PurchaseHistory } from "@prisma/client";
 import React from "react";
 import { formatDistanceToNow } from "date-fns";
+import Image from "next/image";
+
+interface Item {
+  id: string;
+  imageSrc2: string;
+  title: string;
+  category: string;
+
+  // Add more properties as required by your application
+}
+
+interface History {
+  item: Item;
+  purchaseDate: Date;
+  totalPrice: number;
+  // Add more properties as required by your application
+}
 
 interface HistoryElementProps {
-  history: PurchaseHistory & Item;
+  history: History;
   sno: number;
 }
+
 const HistoryElement: React.FC<HistoryElementProps> = ({ history, sno }) => {
   const formattedDate = formatDistanceToNow(history.purchaseDate, {
     addSuffix: true,
@@ -18,7 +36,7 @@ const HistoryElement: React.FC<HistoryElementProps> = ({ history, sno }) => {
       <th>
         {" "}
         <a href={`/item/${history.item.id}`}>
-          <img
+          <Image alt="Image ssrc2"
             src={history.item.imageSrc2}
             style={{ maxHeight: "50px", maxWidth: "50px" }}
           />{" "}
