@@ -33,10 +33,22 @@ const ProfileBox: React.FC<ProfileBoxProps> = ({ currentUser }) => {
       )}
       <div className="flex justify-center items-center m-2">
         <ProfilePicModal />
-        <BodyUpdateModal />
+        <BodyUpdateModal currentUser={currentUser}/>
         <figure className="snip1344">
-          <Image src={userImage} alt="profile-pic" className="background" />
-          <Image src={userImage} alt="profile-sample6" className="profile" />
+          <Image
+            src={userImage}
+            alt="profile-pic"
+            className="background"
+            width={100}
+            height={100}
+          />
+          <Image
+            src={userImage}
+            alt="profile-sample6"
+            className="profile"
+            width={100}
+            height={100}
+          />
           <figcaption>
             <h3>
               {currentUser.name}

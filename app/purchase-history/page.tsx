@@ -5,6 +5,7 @@ import EmptyState from "../components/EmptyState";
 import getCurrentUser from "../actions/getCurrentUser";
 import getPurchase from "../actions/getPurchaseHistory";
 import HistoryElement from "./historyelement";
+import ButtonToPage from "../components/ButtonToPage";
 
 export default async function Home() {
   const currentUser = await getCurrentUser();
@@ -30,10 +31,14 @@ export default async function Home() {
       <div className="text-rose-500 text-2xl">
         <ClientOnly>
           <Container>
-            <EmptyState
-              title="Nothing Found😔"
-              subtitle="Try Purchasing Something"
-            />
+            {" "}
+            <div className="flex flex-col items-center align-middle justify-center">
+              <EmptyState
+                title="Nothing Found😔"
+                subtitle="Try Purchasing Something until then see the available products"
+              />
+              <ButtonToPage label="Go to Home" loc="/" />
+            </div>
           </Container>
         </ClientOnly>
       </div>

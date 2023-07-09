@@ -13,7 +13,7 @@ model User {
   name            String?
   email           String?           @unique
   weight          Float?
-  Height          Int? 
+  Height          Int?
   DateOfBirth     DateTime?
   emailVerified   DateTime?
   calorieUpdated  DateTime?
@@ -24,6 +24,8 @@ model User {
   updatedAt       DateTime          @updatedAt
   accounts        Account[]
   gender          String?
+  lastUpdated     DateTime?
+  lastLogin       DateTime?
   favoriteIds     String[]          @db.ObjectId
   balance         Int               @default(0)
   AddMoneyHistory AddMoneyHistory[]

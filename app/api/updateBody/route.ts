@@ -16,7 +16,7 @@ const dob = new Date(body.dob);
   try {
     const updatedUser = await prisma.user.update({
       where: { id: currentUser.id },
-      data: { DateOfBirth: dob,Height:parseInt(body.height),weight:parseFloat(body.weight),gender:body.gender },
+      data: { DateOfBirth: dob,Height:parseInt(body.height),weight:parseFloat(body.weight),gender:body.gender,lastUpdated:new Date() },
     });
 
     return NextResponse.json({ profilePicture: updatedUser.image });

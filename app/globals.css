@@ -23,6 +23,13 @@ background: -webkit-linear-gradient(90deg, hsla(205, 46%, 10%, 1) 0%, hsla(191, 
 
 filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#0E1C26", endColorstr="#2A454B", GradientType=1 );
 }
+.animText {
+  
+  background: linear-gradient(to right, #30CFD0 0%,#d7ff71 50%, #ff0505 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+ 
+}
 .titleForList {
  
   /* background: linear-gradient(to right, #2144f3,
