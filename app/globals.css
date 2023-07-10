@@ -448,11 +448,11 @@ align-items: center;
 }
 
 .cardContainerList::before {
-  width: 100px;
+  width: 200px;
   height: 100px;
   content: "";
   position: absolute;
-  background-color: rgb(9, 36, 186);
+  background-color: rgb(37, 204, 182);
   z-index: -1;
   border-radius: 50%;
   left: 100px;
@@ -461,8 +461,9 @@ align-items: center;
 }
 
 .cardContainerList:hover::before {
-  transform: translate(-50px ,50px);
-  background-color: rgb(255, 47, 238);
+  transform: translate(-10px ,60px);
+  background-color: rgb(255, 165, 47);
+  width: 100px;
 }
 
 .snip1344 {

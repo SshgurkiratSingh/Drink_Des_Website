@@ -1,12 +1,18 @@
 import Image from "next/image";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/container";
-import getItems from "./actions/getItems";
+import getItems, { ItemParams } from "@/app/actions/getItems";
 import ItemCard from "./components/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 import { categories } from "./components/Categories/Categories";
-export default async function Home() {
-  const Items = await getItems();
+import EmptyState from "./components/EmptyState";
+interface HomeProps {
+  searchParams: ItemParams;
+}
+
+export default async function Home({ searchParams }: HomeProps) {
+  const Items = await getItems(searchParams);
+
   const currentUser = await getCurrentUser();
   return (
     <div className="text-rose-500 text-2xl">
@@ -19,6 +25,8 @@ export default async function Home() {
 
           "
             >
+              {/* if item is empty then render empty component */}
+              {Items.length === 0 && <EmptyState showReset />}
               {Items.map((item) => {
                 return (
                   <ItemCard
