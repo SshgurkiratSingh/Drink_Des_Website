@@ -1,16 +1,17 @@
 "use client";
 import useNotificationModal from "@/app/hooks/useNotificationModal";
 import { useRouter } from "next/navigation";
-import Modal from "./Modals";
 import ModalForNotification from "./ModalForNotification";
 import { SafeUser } from "@/app/types";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
-interface ModalProps {
-  currentUser?: SafeUser;
+interface NotificationModalProps {
+  currentUser?: SafeUser | null;
 }
-const NotificationModal: React.FC<ModalProps> = ({ currentUser }) => {
+const NotificationModal: React.FC<NotificationModalProps> = ({
+  currentUser,
+}) => {
   const NotificationModal = useNotificationModal();
   const loginModal = useLoginModal();
   const router = useRouter();
