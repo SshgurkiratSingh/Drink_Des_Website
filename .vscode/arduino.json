@@ -1,6 +1,0 @@
-{
-    "board": "arduino:avr:uno",
-    "programmer": "avrisp",
-    "sketch": "nodemcuEPROM.ino",
-    "port": "COM7"
-}
