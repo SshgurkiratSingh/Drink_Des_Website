@@ -20,20 +20,9 @@ const ProfileBox: React.FC<ProfileBoxProps> = ({ currentUser }) => {
   const updateBodyModal = useUpdateBody();
   return (
     <>
-      {!currentUser.DateOfBirth ||
-      !currentUser.Height ||
-      !currentUser.weight ||
-      !currentUser.gender ? (
-        <Collapse
-          title="Alert"
-          content="Please Update Your Profile Detail (Age,Weight,Gender,Height)"
-        />
-      ) : (
-        <></>
-      )}
       <div className="flex justify-center items-center m-2">
         <ProfilePicModal />
-        <BodyUpdateModal currentUser={currentUser}/>
+        <BodyUpdateModal currentUser={currentUser} />
         <figure className="snip1344">
           <Image
             src={userImage}

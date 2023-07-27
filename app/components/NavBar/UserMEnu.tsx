@@ -77,89 +77,94 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
     );
   }
   return (
-    <div className="dropdown dropdown-end">
-      <div className="indicator">
-        <span className="indicator-item badge badge-secondary">
-          Rs. {currentUser?.balance}
-        </span>
-      </div>
-      <button onClick={toggleOpen} className="btn btn-ghost btn-circle avatar">
-        {" "}
-        <div className="w-10 rounded-full">
-          <Avatar
-            src={currentUser?.image}
-            alt={currentUser?.name || "User avatar"}
-          />
+    <div className="flex flex-row ml-2">
+      <div className="dropdown dropdown-end">
+        <div className="indicator">
+          <span className="indicator-item badge badge-secondary">
+            Rs. {currentUser?.balance}
+          </span>
         </div>
-      </button>
-      {isOpen && (
-        <>
-          {currentUser ? (
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li className="text-center text-red-300 text-xl">
-                Hi,{currentUser.name}
-              </li>
-              <MenuItem
-                label="Profile "
-                onClick={() => {
-                  router.push("/Profile");
-                }}
-                icon={<TiUser />}
-              />
-              <MenuItem
-                label="Purchase History"
-                onClick={() => {
-                  router.push("/purchase-history");
-                }}
-                icon={<MdHistory />}
-              />
-              <MenuItem
-                label="Favourite"
-                onClick={() => {
-                  router.push("/favourite");
-                }}
-                icon={<MdOutlineFavoriteBorder />}
-              />
-              <MenuItem
-                label="Fitness Record"
-                onClick={() => {
-                  router.push("/Fitness-detail");
-                }}
-                icon={<IoFitnessSharp />}
-              />
-              <MenuItem
-                label="Add Money"
-                onClick={() => {}}
-                icon={<PiMoneyBold />}
-              />
-              <MenuItem
-                label="Logout"
-                onClick={signOut}
-                icon={<AiOutlineLogout />}
-              />
-            </ul>
-          ) : (
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <MenuItem
-                label="Login"
-                onClick={loginModal.onOpen}
-                icon={<PiSignInLight />}
-              />
-              <MenuItem
-                label="Sign Up"
-                onClick={registerModal.onOpen}
-                icon={<GrUserNew />}
-              />
-            </ul>
-          )}
-        </>
-      )}
+        <button
+          onClick={toggleOpen}
+          className="btn btn-ghost btn-circle avatar"
+        >
+          {" "}
+          <div className="w-10 rounded-full">
+            <Avatar
+              src={currentUser?.image}
+              alt={currentUser?.name || "User avatar"}
+            />
+          </div>
+        </button>
+        {isOpen && (
+          <>
+            {currentUser ? (
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li className="text-center text-red-300 text-xl">
+                  Hi,{currentUser.name}
+                </li>
+                <MenuItem
+                  label="Profile "
+                  onClick={() => {
+                    router.push("/Profile");
+                  }}
+                  icon={<TiUser />}
+                />
+                <MenuItem
+                  label="Purchase History"
+                  onClick={() => {
+                    router.push("/purchase-history");
+                  }}
+                  icon={<MdHistory />}
+                />
+                <MenuItem
+                  label="Favourite"
+                  onClick={() => {
+                    router.push("/favourite");
+                  }}
+                  icon={<MdOutlineFavoriteBorder />}
+                />
+                <MenuItem
+                  label="Fitness Record"
+                  onClick={() => {
+                    router.push("/Fitness-detail");
+                  }}
+                  icon={<IoFitnessSharp />}
+                />
+                <MenuItem
+                  label="Add Money"
+                  onClick={() => {}}
+                  icon={<PiMoneyBold />}
+                />
+                <MenuItem
+                  label="Logout"
+                  onClick={signOut}
+                  icon={<AiOutlineLogout />}
+                />
+              </ul>
+            ) : (
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <MenuItem
+                  label="Login"
+                  onClick={loginModal.onOpen}
+                  icon={<PiSignInLight />}
+                />
+                <MenuItem
+                  label="Sign Up"
+                  onClick={registerModal.onOpen}
+                  icon={<GrUserNew />}
+                />
+              </ul>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 };

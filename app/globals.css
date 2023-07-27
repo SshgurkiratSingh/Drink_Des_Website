@@ -455,7 +455,7 @@ align-items: center;
   background-color: rgb(37, 204, 182);
   z-index: -1;
   border-radius: 50%;
-  left: 100px;
+  left: 60px;
   top: 50px;
   transition: all 1s;
 }

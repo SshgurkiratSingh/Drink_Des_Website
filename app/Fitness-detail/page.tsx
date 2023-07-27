@@ -33,7 +33,7 @@ const FitnessDeatil = async () => {
   ) {
     return (
       <ClientOnly>
-        <div className="flex flex-col items-center align-middle justify-center">
+        <div className="flex flex-col items-center align-middle justify-center scroll-auto">
           <EmptyState
             title="Please complete your profile"
             subtitle="Please complete your profile to continue"

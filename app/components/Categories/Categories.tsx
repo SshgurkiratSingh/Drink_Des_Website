@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from "next/navigation";
 import { LiaGlassMartiniAltSolid } from "react-icons/lia";
 import Container from "../container";
 import CategoryBox from "../CategoryBox";
+import { BiFoodMenu } from "react-icons/bi";
 export const categories = [
   {
     label: "Soda Symphony",
@@ -32,6 +33,11 @@ export const categories = [
     label: "Water Wonderland",
     icon: <IoWaterOutline />,
     description: "Stay refreshed and hydrated with pure, chilled water!",
+  },
+  {
+    label: "Snacks",
+    icon: <BiFoodMenu />,
+    description: "Treat yourself to a range of snacks!",
   },
 ];
 

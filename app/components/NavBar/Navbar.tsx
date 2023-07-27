@@ -3,17 +3,24 @@ import React, { use } from "react";
 import { User } from "@prisma/client";
 import Container from "../container";
 import Lgog from "./Logo";
-import Search from "./Search";
 import UserMenu from "./UserMEnu";
 import { SafeUser } from "@/app/types";
 import { useRouter } from "next/navigation";
 import Categories from "../Categories/Categories";
 import Collapse from "../Collapse";
+import { BiBox, BiNotification } from "react-icons/bi";
+import { IoAlert } from "react-icons/io5";
+import useNotificationModal from "@/app/hooks/useNotificationModal";
 interface NavBarProps {
   currentUser?: SafeUser | null;
+  totalAlerts?: number;
 }
-const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
+const Navbar: React.FC<NavBarProps> = ({ currentUser, totalAlerts }) => {
   const router = useRouter();
+  const notifcationModal = useNotificationModal();
+  const handleClick = () => {
+    notifcationModal.onOpen();
+  };
   return (
     <>
       <Container>
@@ -28,36 +35,23 @@ const Navbar: React.FC<NavBarProps> = ({ currentUser }) => {
             <div className="flex-grow"></div>
 
             <div className="flex-grow"></div>
+            <div>
+              <div
+                className="w-10 h-10 rounded-full border-2 flex align-middle justify-center items-center hover:border-blue-600 transition"
+                onClick={handleClick}
+              >
+                <BiNotification />
+                <div className="absolute top-14   bg-red-600 rounded-full w-4 h-4 text-xs text-white flex justify-center items-center">
+                  {notifcationModal.totalAlert}
+                </div>
+              </div>
+            </div>
+            <div className="w-8"></div>
             <UserMenu currentUser={currentUser} />
           </div>
         </div>
       </Container>
-      {currentUser && !currentUser.image ? (
-        <div className="alert shadow-lg">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="stroke-info shrink-0 w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
-          </svg>
-          <div>
-            <h3 className="font-bold">New message!</h3>
-            <div className="text-xs">You donot have a profile image</div>
-          </div>
-          <button className="btn s3" onClick={() => router.push("/Profile")}>
-            Set profile image
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
+
       <Categories />
     </>
   );

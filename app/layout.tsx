@@ -9,6 +9,7 @@ import ToasterProvider from "./providers/ToasterProvider";
 import LoginModal from "./components/modals/LoginModal";
 import getCurrentUser from "./actions/getCurrentUser";
 import AddModal from "./components/modals/AddModal";
+import NotificationModal from "./components/modals/notificationModal";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -31,6 +32,7 @@ export default async function RootLayout({
           <ToasterProvider />
           <RegisterModal />
           <LoginModal />
+          <NotificationModal currentUser={currentUser} />
           {currentUser?.email === "guri2022@hotmail.com" ? (
             <AddModal />
           ) : (
