@@ -52,3 +52,4 @@ const favourite = async () => {
 };
 
 export default favourite;
+export const dynamic = 'force-dynamic'

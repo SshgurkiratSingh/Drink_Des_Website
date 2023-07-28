@@ -57,3 +57,4 @@ const ItemPage = async ({ params }: { params: IParams }) => {
   );
 };
 export default ItemPage;
+export const dynamic = 'force-dynamic'

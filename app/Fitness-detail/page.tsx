@@ -63,3 +63,4 @@ const FitnessDeatil = async () => {
   );
 };
 export default FitnessDeatil;
+export const dynamic = 'force-dynamic'
