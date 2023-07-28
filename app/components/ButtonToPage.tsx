@@ -13,9 +13,9 @@ const ButtonToPage = ({ label, loc }: ButtonProps) => {
   const router = useRouter();
 
   return (
-    <Button
+    <Button 
       label={label}
-      s5
+      s4
       onClick={() => {
         router.push(loc);
       }}

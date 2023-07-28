@@ -60,7 +60,7 @@ const ModalForNotification: React.FC<ModalProps> = ({
           z-50 
           outline-none 
           focus:outline-none
-          bg-neutral-800/70
+          
         "
       >
         <div
@@ -77,10 +77,12 @@ const ModalForNotification: React.FC<ModalProps> = ({
           md:h-auto
           "
         >
-          {/*content*/}
           <div
             className={`
             translate
+            border-2
+            border-violet-900
+            rounded-lg
             duration-300
             h-full
             ${showModal ? "translate-y-0" : "translate-y-full"}
@@ -100,12 +102,12 @@ const ModalForNotification: React.FC<ModalProps> = ({
               flex 
               flex-col 
               w-full 
-              bg-zinc-900 
+            
               outline-none 
               focus:outline-none
             "
+              style={{ backdropFilter: "blur(22px)" }}
             >
-              {/*header*/}
               <div
                 className="
                 flex 

@@ -56,11 +56,15 @@ const FitnessDeatil = async () => {
           {currentUser.lastUpdated && (
             <LastUpdated lastUpdated={currentUser.lastUpdated} />
           )}
-          <ButtonToPage label="Update it" loc="/Profile" />
+          <center>
+            <div className="flex items-center ">
+              <ButtonToPage label="Update it" loc="/Profile" />
+            </div>
+          </center>
         </div>
       </div>
     </ClientOnly>
   );
 };
 export default FitnessDeatil;
-export const dynamic = 'force-dynamic'
+export const dynamic = "force-dynamic";

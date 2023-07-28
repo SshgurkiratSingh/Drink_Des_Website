@@ -71,6 +71,7 @@ const Modal: React.FC<ModalProps> = ({
     <>
       <div
         className="
+        text-cyan-600
           justify-center 
           items-center 
           flex 
@@ -82,6 +83,7 @@ const Modal: React.FC<ModalProps> = ({
           outline-none 
           focus:outline-none
           bg-neutral-800/70
+         
         "
       >
         <div
@@ -93,6 +95,7 @@ const Modal: React.FC<ModalProps> = ({
           xl:w-2/5
           my-6
           mx-auto 
+         
           h-full 
           lg:h-auto
           md:h-auto
@@ -102,6 +105,9 @@ const Modal: React.FC<ModalProps> = ({
           <div
             className={`
             translate
+            border-2
+            border-violet-900
+            rounded-lg
             duration-300
             h-full
             ${showModal ? "translate-y-0" : "translate-y-full"}
@@ -121,12 +127,13 @@ const Modal: React.FC<ModalProps> = ({
               flex 
               flex-col 
               w-full 
-              bg-zinc-900 
+            
               outline-none 
               focus:outline-none
             "
+              style={{ backdropFilter: "blur(22px)" }}
             >
-              {/*header*/}
+             
               <div
                 className="
                 flex 
@@ -136,6 +143,7 @@ const Modal: React.FC<ModalProps> = ({
                 justify-center
                 relative
                 border-b-[1px]
+                border-violet-900
                 "
               >
                 <button
@@ -151,7 +159,9 @@ const Modal: React.FC<ModalProps> = ({
                 >
                   <IoMdClose size={18} />
                 </button>
-                <div className="text-lg font-semibold">{title}</div>
+                <div className="text-lg font-semibold text-cyan-600">
+                  {title}
+                </div>
               </div>
               {/*body*/}
               <div className="relative p-6 flex-auto">{body}</div>

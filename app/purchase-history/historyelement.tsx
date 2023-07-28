@@ -36,7 +36,10 @@ const HistoryElement: React.FC<HistoryElementProps> = ({ history, sno }) => {
       <th>
         {" "}
         <a href={`/item/${history.item.id}`}>
-          <Image alt="Image ssrc2"
+          <Image
+            alt="Image ssrc2"
+            width="50"
+            height="50"
             src={history.item.imageSrc2}
             style={{ maxHeight: "50px", maxWidth: "50px" }}
           />{" "}

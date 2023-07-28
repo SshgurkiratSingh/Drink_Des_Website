@@ -15,7 +15,6 @@ interface ProfileBoxProps {
 }
 
 const ProfileBox: React.FC<ProfileBoxProps> = ({ currentUser }) => {
-  const userImage = currentUser.image || "/images/placeholder.png";
   const profilePicModal = useProfilePicModal();
   const updateBodyModal = useUpdateBody();
   return (
@@ -23,57 +22,58 @@ const ProfileBox: React.FC<ProfileBoxProps> = ({ currentUser }) => {
       <div className="flex justify-center items-center m-2">
         <ProfilePicModal />
         <BodyUpdateModal currentUser={currentUser} />
-        <figure className="snip1344">
-          <Image
-            src={userImage}
-            alt="profile-pic"
-            className="background"
-            width={100}
-            height={100}
-          />
-          <Image
-            src={userImage}
-            alt="profile-sample6"
-            className="profile"
-            width={100}
-            height={100}
-          />
-          <figcaption>
-            <h3>
-              {currentUser.name}
-              <span>Balance :Rs.{currentUser.balance}</span>
-            </h3>
-            {currentUser.DateOfBirth &&
-            currentUser.Height &&
-            currentUser.weight &&
-            currentUser.gender ? (
-              <BodyInfo
-                gender={currentUser.gender}
-                weight={currentUser.weight}
-                height={currentUser.Height}
-                dob={currentUser.DateOfBirth}
-              />
-            ) : (
-              <></>
-            )}
-            <div className="flex flex-row items-center justify-center p-2 m-2">
-              <Button
-                onClick={() => {
-                  profilePicModal.onOpen();
-                }}
-                s4
-                label="Update Profile Picture"
-              />
-              <Button
-                onClick={() => {
-                  updateBodyModal.onOpen();
-                }}
-                s4
-                label="Modify age, height, weight, and gender"
-              />
+        <div>
+          <div className="flex  items-center flex-col bg-violet-600/10 rounded-lg w-auto h-auto min-h-16   p-2">
+            <div
+              className="flex  items-center flex-col bg-violet-700/20 rounded-lg w-auto h-auto min-h-16   p-2"
+              style={{ backdropFilter: "10px" }}
+            >
+              <div className="text-2xl font-extrabold ">
+                {" "}
+                {currentUser.name}
+              </div>
+              <div className="  font-semibold text-lg">
+                {" "}
+                {currentUser.email}
+              </div>
+              <div className="  font-semibold text-lg">
+                Balance: ₹{currentUser.balance}
+              </div>
+
+              <div className="avatar">
+                <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 m-4">
+                  <img src={currentUser.image || "/placeholder.png"} />
+                </div>
+              </div>
+              <div className="flex flex-row items-center justify-center p-2 m-2">
+                <Button
+                  onClick={() => {
+                    profilePicModal.onOpen();
+                  }}
+                  s4
+                  label="Update Profile Picture"
+                />
+                <Button
+                  onClick={() => {
+                    updateBodyModal.onOpen();
+                  }}
+                  s4
+                  label="Modify age, height, weight, and gender"
+                />
+              </div>
+              <div className="flex flex-row items-center justify-center p-2 m-2">
+                {currentUser.DateOfBirth && (
+                  <BodyInfo
+                    weight={currentUser.weight || 0}
+                    height={currentUser.Height || 0}
+                    dob={currentUser.DateOfBirth}
+                    gender={currentUser.gender || "Not Set"}
+                  />
+                )}
+              </div>
             </div>
-          </figcaption>
-        </figure>
+          </div>
+        </div>
       </div>
     </>
   );
