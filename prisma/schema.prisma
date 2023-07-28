@@ -90,3 +90,10 @@ model AddMoneyHistory {
   method        String?
   By            String?
 }
+
+model couponCode {
+  id     String  @id @default(auto()) @map("_id") @db.ObjectId
+  code   String  @unique
+  amount Int     @default(25)
+  status Boolean @default(false)
+}

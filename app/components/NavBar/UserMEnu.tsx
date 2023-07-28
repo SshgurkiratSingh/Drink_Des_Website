@@ -16,6 +16,7 @@ import { BsPlus } from "react-icons/bs";
 import { PiMoneyBold } from "react-icons/pi";
 import useAddModal from "@/app/hooks/useAddModal";
 import { useRouter } from "next/navigation";
+import { BiHome } from "react-icons/bi";
 interface UserMenuProps {
   currentUser?: SafeUser | null;
 }
@@ -107,6 +108,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                   Hi,{currentUser.name}
                 </li>
                 <MenuItem
+                  label="Home"
+                  onClick={() => router.push("/")}
+                  icon={<BiHome />}
+                />
+                <MenuItem
                   label="Profile "
                   onClick={() => {
                     router.push("/Profile");
@@ -136,7 +142,9 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                 />
                 <MenuItem
                   label="Add Money"
-                  onClick={() => {}}
+                  onClick={() => {
+                    router.push("/addMoney");
+                  }}
                   icon={<PiMoneyBold />}
                 />
                 <MenuItem
