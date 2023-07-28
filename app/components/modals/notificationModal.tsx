@@ -15,26 +15,26 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
   const NotificationModal = useNotificationModal();
   const loginModal = useLoginModal();
   const router = useRouter();
-  useEffect(() => {
-    if (!currentUser) {
-      NotificationModal.incrementTotalAlert();
-    } else {
-      if (!currentUser?.image) {
-        NotificationModal.incrementTotalAlert();
-      }
-      if (
-        !currentUser?.DateOfBirth ||
-        !currentUser?.Height ||
-        !currentUser?.gender ||
-        !currentUser?.weight
-      ) {
-        NotificationModal.incrementTotalAlert();
-      }
-      if (currentUser?.balance < 20) {
-        NotificationModal.incrementTotalAlert();
-      }
-    }
-  }, [currentUser]);
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     NotificationModal.incrementTotalAlert();
+  //   } else {
+  //     if (!currentUser?.image) {
+  //       NotificationModal.incrementTotalAlert();
+  //     }
+  //     if (
+  //       !currentUser?.DateOfBirth ||
+  //       !currentUser?.Height ||
+  //       !currentUser?.gender ||
+  //       !currentUser?.weight
+  //     ) {
+  //       NotificationModal.incrementTotalAlert();
+  //     }
+  //     if (currentUser?.balance < 20) {
+  //       NotificationModal.incrementTotalAlert();
+  //     }
+  //   }
+  // }, [currentUser]);
 
   let bodyContent = (
     <div className="flex flex-col justify-center items-center m-3">

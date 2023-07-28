@@ -42,7 +42,7 @@ const Navbar: React.FC<NavBarProps> = ({ currentUser, totalAlerts }) => {
               >
                 <BiNotification />
                 <div className="absolute top-14   bg-red-600 rounded-full w-4 h-4 text-xs text-white flex justify-center items-center">
-                  {notifcationModal.totalAlert}
+                  1
                 </div>
               </div>
             </div>

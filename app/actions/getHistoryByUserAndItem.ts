@@ -1,4 +1,5 @@
 import prisma from "@/app/libs/prismadb";
+import { PurchaseHistory } from "@prisma/client";
 
 interface IParams {
   userId?: string;
@@ -14,7 +15,7 @@ export default async function getHistoryById(params: IParams) {
             userId: userId
         }
       });
-      const aaa = data.filter(item => item.itemId === itemId)
+      const aaa = data.filter((item:PurchaseHistory) => item.itemId === itemId)
   console.log(data)
       if (!aaa) {
         return null;
