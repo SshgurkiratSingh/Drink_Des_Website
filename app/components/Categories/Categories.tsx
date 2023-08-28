@@ -13,12 +13,6 @@ export const categories = [
     description: "Discover a world of fizzy delights with a variety of sodas!",
   },
   {
-    label: "Beer Bonanza",
-    icon: <IoBeerOutline />,
-    description:
-      "Indulge in a celebration of flavors with a selection of beers!",
-  },
-  {
     label: "Juice Jubilee",
     icon: <LiaGlassMartiniAltSolid />,
     description: "Enjoy a feast of fruity freshness with a spectrum of juices!",

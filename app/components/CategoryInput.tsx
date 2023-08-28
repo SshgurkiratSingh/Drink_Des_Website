@@ -4,6 +4,7 @@ interface CategoryInputProps {
   label: string;
   icon: ReactElement;
   selected?: boolean;
+  description?: string;
   onClick: (value: string) => void;
 }
 
@@ -30,7 +31,7 @@ const CategoryInput: React.FC<CategoryInputProps> = ({
       `}
     >
       {icon}
-      <div className={`   ${selected ? "text-purple-700 " : ""}`}>{label}</div>
+      <div className={`${selected ? "text-purple-700 " : ""}`}>{label}</div>
     </div>
   );
 };
