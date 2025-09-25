@@ -4,8 +4,7 @@ import { useCallback, useState } from "react";
 import { toast } from "react-hot-toast";
 import { signIn } from "next-auth/react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
-import { FcGoogle } from "react-icons/fc";
-import { AiFillGithub } from "react-icons/ai";
+// Google and GitHub imports removed
 import { useRouter } from "next/navigation";
 
 import useRegisterModal from "@/app/hooks/useRegisterModal";
@@ -85,18 +84,7 @@ const LoginModal = () => {
   const footerContent = (
     <div className="flex flex-col gap-4 mt-3">
       <hr />
-      {/* <Button
-        outline
-        label="Continue with Google"
-        icon={FcGoogle}
-        onClick={() => signIn("google")}
-      />
-      <Button
-        outline
-        label="Continue with Github"
-        icon={AiFillGithub}
-        onClick={() => signIn("github")}
-      /> */}
+      // Google and GitHub login buttons removed
       <div
         className="
       text-red-100 text-center mt-4 font-light"
